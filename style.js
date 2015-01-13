@@ -1,57 +1,68 @@
-function wyswietlListeStyli(){
-    var kontener = document.getElementById("kontener");
-    var listaStyli = document.createElement("div");
-    kontener.appendChild(listaStyli);
-    listaStyli.id = "lista_styli";
-    var ul = document.createElement('ul');
-    var style = document.getElementsByTagName("link");
-    for(var i = 0; i < style.length ; i++){
-        var li = document.createElement('li');
-        var a = document.createElement('a');
-        a.setAttribute("onclick","ustawStyl('"+style[i].title+"');");
-        a.innerHTML = style[i].title; // wyswietli tytul w pasku
-        li.appendChild(a);
-        ul.appendChild(li);
-    }
-listaStyli.appendChild(ul);
-}    
+function JsLoadFunc(){
+    loadStylesheetsBtns();
+}
 
-function aktywujStyl(nazwa){
-    var link = document.getElementsByTagName('link');
-    var tytul;
-    for(var i = 0; i < link.length; i++ ){
-        tytul = link[i].getAttribute('title');
-    if (tytul === nazwa)
-        link[i].disabled = false;
-    else
-        link[i].disabled = true;
+function loadStylesheetsBtns(){
+    var usedStyleSheet,
+        stylesArr = document.styleSheets,
+        el = document.createElement('div');
+        el.id = "ListaStyli";
+        el.innerHTML = "Other versions of page:",
+        definedCookie = getCookie("stylesheetName");
+
+    if(definedCookie!=""){
+        changePageStyle(definedCookie,1);
+        usedStyleSheet = definedCookie;
+    }else
+        usedStyleSheet = (typeof document.preferredStyleSheetSet != 'undefined')?document.preferredStyleSheetSet:document.preferredStylesheetSet;
+
+    for(var i=0;i<stylesArr.length;i++){
+        if(usedStyleSheet==stylesArr[i].title)
+            el.innerHTML+=' '+usedStyleSheet;
+        else
+            el.innerHTML+=' <a href="#" onclick="changePageStyle(\''+stylesArr[i].title+'\');return false;">'+stylesArr[i].title+'</a>'
+    }
+    document.getElementById("tresc").appendChild(el);
+}
+
+function getCookie(cname) {
+    var name = cname+"=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i<ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c=c.substring(1);
+        if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+    }
+    return "";
+} 
+
+function changePageStyle(name, firstTime){
+    var links=document.getElementsByTagName("link"),
+        innerHTML = 'Other versions of page:',
+        firstTime = typeof firstTime!=='undefined'?firstTime:0;
+
+    for (var i=0;i<links.length;i++){
+        if(links[i].rel.indexOf( "stylesheet" )!=-1 && links[i].title){
+            links[i].disabled = true;
+            if(links[i].title == name){
+                links[i].disabled = false;
+                setCookie("stylesheetName", name);
+                if(!firstTime)
+                    innerHTML+=' '+name;
+            }else if(!firstTime)
+                    innerHTML+=' <a href="#" onclick="changePageStyle(\''+links[i].title+'\');return false;">'+links[i].title+'</a>';
+        }
+    }
+    if(!firstTime){
+        var menuEl = document.getElementById("ListaStyli");
+        menuEl.innerHTML = innerHTML;
     }
 }
 
-function setCookie(nazwa,wartosc){
-    var aktualnaData = new Date();
-    aktualnaData.setTime(aktualnaData.getTime() + 30 * 24 * 60 * 60 * 1000);
-    var czasWygasniecia = aktualnaData.toGMTString();
-    czasWygasniecia = '; expires=' + czasWygasniecia;
-//    sciezka = '; path=' + sciezka;
-    document.cookie = nazwa + '=' + encodeURI(wartosc) + czasWygasniecia; 
-}
-
-function ustawStyl(nazwa){
-    setCookie('aktywnyStyl',nazwa);
-    aktywujStyl(nazwa);
-}
-
-function zmienStyle(){
-    wyswietlListeStyli();
-    var cookie = document.cookie;
-    var nazwa = 'aktywnyStyl';
-    
-    if(!(cookie.indexOf('aktywnyStyl' + '=') < 0)){
-        var poczatek = cookie.indexOf(nazwa + '=') + nazwa.length + 1;
-        var koniec = cookie.substring(poczatek, cookie.length);
-        koniec = (koniec.indexOf(';') < 0) ? cookie.length : poczatek + koniec.indexOf(';');
-        var aktywnyStyl = decodeURI(cookie.substring(poczatek, koniec));
-        aktywujStyl(aktywnyStyl);
-    }
+function setCookie(cname, cvalue, exdays) {
+    exdays = typeof exdays!=='undefined'?exdays:9999;
+    var d = new Date();
+    d.setTime(d.getTime()+(exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname+"="+cvalue+"; "+expires;
 }
