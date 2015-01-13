@@ -22,7 +22,7 @@ function loadStylesheetsBtns(){
         else
             el.innerHTML+=' <a href="#" onclick="changePageStyle(\''+stylesArr[i].title+'\');return false;">'+stylesArr[i].title+'</a>'
     }
-    document.getElementById("tresc").appendChild(el);
+    document.getElementById("kontenerR").appendChild(el);
 }
 
 function getCookie(cname) {
