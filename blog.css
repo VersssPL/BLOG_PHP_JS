@@ -1,0 +1,239 @@
+/*----------- FORMATOWANIE TEKSTU ---------- */ 
+html,body
+{
+	font-family:"Times New Roman","Verdana","Tahoma";
+	margin:0;
+	background-image: url(img/tlo.jpg);
+	background-repeat: repeat-x;
+}
+h1
+{ 
+	color: white;
+	font-variant:small-caps;
+	letter-spacing: 7px;
+}
+h4 { color: blue;
+	font-weight: bold;
+	}
+h3 { color: black;
+	 text-align: center;}
+
+p 
+{
+	text-align:justify;
+}
+
+/*-------------UKLAD STRONY------------- */
+#kontener
+{
+	/*position: relative;*/
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;	
+} 
+#kontenerR
+{
+	float:right;
+	width: 750px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100%;
+}
+#header
+{
+	background-image: url(img/menu_head_foot.jpg);
+	text-align: center;
+	word-wrap: break-word;
+	height: 80px;
+	margin-left: auto;
+	margin-right: auto;	
+	border:2px black solid;
+	border-radius: 10px;
+	
+}
+#tresc 
+{
+	max-width: 860px;
+	background-image: url(img/menu_hover.jpg);
+	overflow: auto;
+	margin: 0px 0px;
+	margin-left: 0px;
+	padding: 0px 10px;
+	border:2px black solid;
+	min-height:485px;
+	border-radius: 10px;
+	text-align:left;
+}
+#opis
+{
+	min-width:574px;
+	background-image: url(img/menu.jpg);
+	border:2px black solid;
+	border-radius: 10px;
+	font-variant:small-caps;
+	margin-top:11px;
+	margin-bottom:11px;
+	padding:16px;
+}
+
+#wpis
+{
+	min-width:574px;
+	background-image: url(img/menu.jpg);
+	border:2px black solid;
+	border-radius: 10px;
+	font-variant:small-caps;
+	margin-bottom:11px;
+	padding:16px;
+}
+
+#data
+{
+	background-image: url(img/menu.jpg);
+	text-align: right;
+	min-width: 450px;
+}
+
+#linia
+{
+	min-width: 450px;
+	text-align: right;
+	height: 1px;
+	background-color: #AAAAAA;
+	margin-top: 16px;
+}
+
+#komentarz
+{
+	min-width: 300px;
+	background-image: url(img/menu.jpg);
+	border:1px black solid;
+	border-radius: 10px;
+	padding:11px;
+}
+
+#menu 
+{
+	width: 248px;
+	background-image: url(img/menu.jpg);
+	background-color: #6699FF;
+	float: left;
+	position: fixed;
+	height: 100%;
+	border:2px black solid;
+	border-radius: 10px;
+}
+
+#spis
+{
+	display: block;
+	list-style:none;
+}
+
+#ListaStyli{text-align:center;margin-bottom:10px;}
+#ListaStyli a{text-decoration:none;}
+
+#stopka
+{
+	clear: both;
+	background-image: url(img/menu_head_foot.jpg);
+	text-align: center;
+	height: 70px;
+	margin-left: auto;
+	margin-right: auto;	
+	border:2px black solid;
+	border-radius: 10px;
+}
+ul, ul li, ul li ul li
+{
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul 
+{
+	width: 250px;
+}
+
+ul a:link, ul a:visited {
+	display: block;
+	width: 236px;
+	text-decoration: none;
+	background-image: url(img/menu.jpg);
+	color: #000;
+	padding: 5px;
+	border: 1px outset #6699FF;
+}
+ul a
+{
+	cursor:default;
+}
+
+ul a:hover {
+	border-style: inset;
+	padding: 7px 3px 3px 7px;
+	background-image: url(img/menu_hover.jpg);
+}
+
+
+/*---------------  TABELA ------------------ */ 
+#tabela
+{
+	border-collapse: collapse;
+}
+#tabela td
+{
+	border: 1px solid #666666;
+	padding:5px;
+}
+#tabela thead,tfoot
+{
+	border: 2px solid #FF3333;
+	background-color:#000000;
+	text-transform:uppercase;
+	color: white;
+}
+#tabela tbody
+{
+	border: 2px solid #FF3333;
+	background-color:#6699FF;
+}
+
+td.roznica {
+   background-color: #006699;
+   font-weight: bold;
+   color: darkred;
+}
+
+/*----------------LISTA-------------- */ 
+
+ol li
+{ 
+	list-style-type: upper-roman; 
+} 
+
+ol li ol li 
+{ 
+	list-style-type: lower-roman; 
+} 
+
+ol li ol li ol li
+{ 
+	list-style-type: lower-greek; 
+}
+
+/*--------------OBRAZY-------------- */ 
+
+#html_v
+{
+	float:left;
+	margin-left:3%;
+}
+
+#css_v
+{
+	float:left;
+	margin-left: 3%;
+}

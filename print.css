@@ -1,0 +1,42 @@
+html,body
+{
+	font-family:"Times New Roman","Verdana","Tahoma";
+	background-color: white;
+	margin:0;
+}
+#menu, #stopka
+{
+	display:none;
+}
+
+#tresc
+{
+	margin-left: 0px;
+}
+
+h1, h2, h3, p
+{
+    color:black;
+    background:none;
+    text-shadow:none;
+}
+
+#kontenerR
+{
+	width:100%;
+}
+
+#tresc
+{
+	width:100%;
+	border:none;
+}
+
+#header
+{
+	width:100%;
+	border:none;
+}
+
+#ListaStyli{text-align:center;margin-bottom:10px;}
+#ListaStyli a{text-decoration:none;}
