@@ -74,9 +74,9 @@ function formValidator(){
             
         };
         przycisk2.onclick = function(){
-            var tabela = document.getElementById("tabelaForm");
-            var iloscWierszy = tabela.rows.length;
-            var wstawianyWiersz = tabela.insertRow(iloscWierszy-2);
+            var tab = document.getElementById("tabelaForm");
+            var iloscWierszy = tab.rows.length;
+            var wstawianyWiersz = tab.insertRow(iloscWierszy-2);
             var komorka1 = wstawianyWiersz.insertCell(0);
             var komorka2 = wstawianyWiersz.insertCell(1);
             komorka1.innerHTML = iloscWierszy-7+':';

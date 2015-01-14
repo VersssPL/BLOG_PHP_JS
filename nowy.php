@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+echo '<body onload="loadStylesheetsBtns()">';
 include 'menu.php';
 echo "<div id='kontenerR'>";
 echo "<div id='header'><h1>Załóż Blog</h1></div>";

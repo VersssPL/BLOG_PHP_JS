@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+echo '<body onload="loadStylesheetsBtns()">';
 include 'menu.php';
 echo "<div id='kontenerR'>";
 $nazwaBlogu = $_GET["nazwa"];

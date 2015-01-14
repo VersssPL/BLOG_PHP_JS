@@ -14,5 +14,4 @@ charset=UTF-8" />
 </head>
 <body>
 <div id="kontener">';
-echo '<body onload="formValidator();loadStylesheetsBtns()">';
 ?>

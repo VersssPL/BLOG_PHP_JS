@@ -7,6 +7,7 @@ echo '<div id="menu">
         <li><a href="nowy.php">Zakładanie blogu</a></li>
         <li><a href="wpis.php">Dodaj wpis</a></li>
         <li><a href="blog.php">Lista Blogów</a></li>
+        <li><a href="komunikator.php">Komunikator</a></li>
 	</ul>
 </div>';
 ?>
